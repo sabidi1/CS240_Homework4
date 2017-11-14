@@ -121,7 +121,7 @@ public class DLNodeList<T> implements ListInterface<T> {
 			
 			if(position < 1 || position > size)
 			{
-				throw new IndexOutOfBounds("Error. Position is beyond the boundaries of input.");
+				throw new IndexOutOfBounds("Error");
 			}
 			while(count < position )
 			{
@@ -135,7 +135,7 @@ public class DLNodeList<T> implements ListInterface<T> {
 			
 		if(position < 1 || position > size)
 			{
-				throw new IndexOutOfBounds("Error. Position is beyond the boundaries of input.");
+				throw new IndexOutOfBounds("Error.");
 			}
 		
 			DLNode<T> temp = key;
