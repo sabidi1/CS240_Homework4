@@ -96,7 +96,7 @@ public class PriorityQueue<T extends Comparable<T>> implements PriorityQueueInte
 			}
 			return numberOfItems;
 		}
-		return 0;
+	
 	}
 
 	@Override
