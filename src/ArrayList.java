@@ -55,11 +55,7 @@ public class ArrayList<T> implements ListInterface<T>
 			list[position - 1] = item;
 		}
 		
-	/**
-		Returns an item based on the specified position in the list.
-		@param position The location of the item on the list to be returned.
-		@return T The item at the specified position in the list.
-	*/
+
 	public T view(int position)
 		{
 			return list[position - 1];
@@ -79,7 +75,6 @@ public class ArrayList<T> implements ListInterface<T>
 	
 	/**
 		Determines whether the received item is in the list.
-		@param item The item to see if the list contains.
 		@return boolean True if the item is there, false if it is not.
 	*/
 	public boolean contains(T item)
