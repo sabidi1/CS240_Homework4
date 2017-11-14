@@ -26,8 +26,8 @@ public class Node<T extends Comparable<T>> implements Comparable<Node <T>> {
 			next = node;
 		}
 		
-		public int compareTo(Node<T> other) {
-			return data.compareTo(other.data);
+		public int compareTo(Node<T> key) {
+			return data.compareTo(key.data);
 		}
 		public void setData(T data) {
 			this.data = data;
