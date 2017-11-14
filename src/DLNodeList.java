@@ -18,7 +18,7 @@ public class DLNodeList<T> implements ListInterface<T> {
 	{
 		DLNode <T> newNode = new DLNode<T>(item);
 		
-		if (key == null) 		//no nodes in list 
+		if (isEmpty()) 		//no nodes in list 
 		{
 			key = newNode;
 		}
@@ -46,6 +46,10 @@ public class DLNodeList<T> implements ListInterface<T> {
 			DLNode<T> temp = key;
 			int count = 1;
 			
+			if(position < 0 || position > size)
+			{
+				throw new IndexOutOfBounds("Error");
+			}
 			if(position == 1) {		//adding at the start of list
 				newNode.setNext(key);
 				key.setPreviousNode(newNode);
@@ -92,7 +96,8 @@ public class DLNodeList<T> implements ListInterface<T> {
 						temp2 = temp2.getNextNode();
 						count++;
 					}
-					if(temp2.getNextNode() == null) {
+					if(temp2.getNextNode() == null) //emoves the first entry
+					{
 						temp2.setNext(null);
 					}
 					else {
@@ -114,6 +119,10 @@ public class DLNodeList<T> implements ListInterface<T> {
 			DLNode<T> temp = key;
 			int count = 1;
 			
+			if(position < 1 || position > size)
+			{
+				throw new IndexOutOfBounds("Error. Position is beyond the boundaries of input.");
+			}
 			while(count < position )
 			{
 				temp = temp.getNextNode();
@@ -123,6 +132,12 @@ public class DLNodeList<T> implements ListInterface<T> {
 	}
 
 	public T view(int position) {
+			
+		if(position < 1 || position > size)
+			{
+				throw new IndexOutOfBounds("Error. Position is beyond the boundaries of input.");
+			}
+		
 			DLNode<T> temp = key;
 			int count = 1;
 			
@@ -138,7 +153,11 @@ public class DLNodeList<T> implements ListInterface<T> {
 	 		Removes all items from the list
 	 */
 	public void clear() {
-			key = null;
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
+		key = null;
 	}
 
 	/*
@@ -148,6 +167,7 @@ public class DLNodeList<T> implements ListInterface<T> {
 	 */
 	public boolean contains(T item) {
 		DLNode<T> temp = key;
+		
 		if(temp.getData().equals(item)) {		//key node is compared to item. If equals, return ture
 			return true;
 		}
@@ -156,6 +176,14 @@ public class DLNodeList<T> implements ListInterface<T> {
 		{
 			temp = temp.getNextNode();	//Set temp to next node in list
 			if(temp.getData().equals(item))	//Compare next node in list and return true if they are equal
+			{
+				return true;
+			}
+			
+		}
+		if(tempNode.getNextNode() == null)
+		{
+			if(tempNode.getData() == item)
 			{
 				return true;
 			}
