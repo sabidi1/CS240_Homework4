@@ -124,7 +124,7 @@ public class ArrayList<T> implements ListInterface<T>
 	{
 		for (int i = 0; i < endOfList; i++)
 		{
-			System.out.println("\t" + (i+1) + ") " + list[i]); //prints the array out in a neat format, with tabs and numbering
+			System.out.println(list[i]);
 		}
 	}
 }
