@@ -1,9 +1,4 @@
-/**
-	An ADT unsorted list implemented using a fixed
-	sized array of size 10.
-..
-	@version 1.0 
-*/
+
 
 public class ArrayList<T> implements ListInterface<T>
 {
@@ -40,7 +35,8 @@ public class ArrayList<T> implements ListInterface<T>
 			throw new IndexOutOfBoundsException("That position does not exist ");
 		}
 		else
-		{
+		{	
+			//Other item positions below the specified index position will be effected.
 			for (int i = position; i < endOfList; i++) //Moves all items down the list starting from position
 			{
 				list[i-1] = list[i];
@@ -61,7 +57,6 @@ public class ArrayList<T> implements ListInterface<T>
 		
 	/**
 		Returns an item based on the specified position in the list.
-		The items in the list will not be effected.
 		@param position The location of the item on the list to be returned.
 		@return T The item at the specified position in the list.
 	*/
