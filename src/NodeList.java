@@ -24,9 +24,9 @@ public class NodeList<T> implements ListInterface<T>
 	*/
 	public void add(T item)
 	{
-		if (key == null) //Special case if there are no nodes in the list
+		if (key == null) //No nodes in the list
 		{
-			Node<T> newNode = new Node<T>(item);
+			Node<T> newNode = new Node<T>(item);		//newNode = item
 			key = newNode;
 		}
 		else
@@ -74,7 +74,7 @@ public class NodeList<T> implements ListInterface<T>
 					count++;
 				}
 				Node<T> previous = temp2;
-				temp2 = temp2.getNextNode().getNextNode(); //find the node after the desired node to be removed
+				temp2 = temp2.getNextNode().getNextNode();
 				previous.setNext(temp2); 
 			}
 		}
@@ -138,7 +138,7 @@ public class NodeList<T> implements ListInterface<T>
 			return true;
 		}
 		
-		while (temp.getNextNode() != null) //compares the data between each node in the list and the item to be compared
+		while (temp.getNextNode() != null) //iterates through the list and compares the data 
 		{
 			temp = temp.getNextNode();
 			if (temp.getData().equals(item)) //if there the same, the item is in the list
@@ -163,7 +163,7 @@ public class NodeList<T> implements ListInterface<T>
 			return 0;
 		}
 		
-		while (temp.getNextNode() != null) //for every additional node, increase count by one until there are no nodes left
+		while (temp.getNextNode() != null) //iterates through the list
 		{
 			temp = temp.getNextNode();
 			count++;
@@ -190,21 +190,19 @@ public class NodeList<T> implements ListInterface<T>
 		{
 			int i = 1;
 			Node<T> temp = key;
-			System.out.println("\t" + i++ + ") " + temp.getData());
+			System.out.println(temp.getData());
 			
-			if (key.getNextNode() != null) //If there's only one item in the list, print only that item out
+			if (key.getNextNode() != null) 
 			{
-				do
+				while(temp.getNextNode() != null);	//iterate through the list
+				
 				{
 					temp = temp.getNextNode();
-					System.out.println("\t" + i++ + ") " + temp.getData());
+					System.out.println(temp.getData());
 				}
-				while(temp.getNextNode() != null); //continue as long as there are more nodes to print
+				
 			}
 		}
-		else
-		{
-			System.out.println("There is nothing in this list to print out!");
-		}
+		
 	}
 }
