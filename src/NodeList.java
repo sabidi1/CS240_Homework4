@@ -14,20 +14,19 @@ public class NodeList<T> implements ListInterface<T>
 	{
 		key = null;
 	}
-
-
 	
 	/**	Add an entry to the end of the list.
 		The list size will be increased by 1.
-		Other item positions will be unaffected.
 		@param item The Object to be added.
 	*/
 	public void add(T item)
-	{
+	{	
+		int count = 0;
 		if (key == null) //No nodes in the list
 		{
 			Node<T> newNode = new Node<T>(item);		//newNode = item
 			key = newNode;
+			count++;
 		}
 		else
 		{
@@ -37,6 +36,7 @@ public class NodeList<T> implements ListInterface<T>
 			while(temp.getNextNode() != null) //Iterates until it finds the last node in the list
 			{
 				temp = temp.getNextNode();
+				count++;
 			}
 			temp.setNext(newNode); //Links the last node to the new node
 		}
@@ -51,6 +51,10 @@ public class NodeList<T> implements ListInterface<T>
 	*/
 	public void remove(int position)
 	{
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
 		@SuppressWarnings("unused")
 		Node<T> temp = key;
 		
@@ -87,6 +91,10 @@ public class NodeList<T> implements ListInterface<T>
 	*/
 	public void replace(int position, T item)
 	{
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
 		Node<T> temp = key;
 		int count = 1;
 		
@@ -105,7 +113,11 @@ public class NodeList<T> implements ListInterface<T>
 		@return T The item at the specified position in the list.
 	*/
 	public T view(int position)
-	{
+	{	
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
 		Node<T> temp = key;
 		int count = 1;
 		while (count < position) //iterate until count equals position
@@ -131,6 +143,10 @@ public class NodeList<T> implements ListInterface<T>
 	*/
 	public boolean contains(T item)
 	{
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
 		Node<T> temp = key;
 		
 		if (temp.getData().equals(item)) //The key node must be checked for equality previous moving to the next node
@@ -186,9 +202,13 @@ public class NodeList<T> implements ListInterface<T>
 	*/
 	public void toArray()
 	{
+		if(isEmpty())
+		{
+			throw new EmptyListException("Error. The list is empty.");
+		}
 		if (!isEmpty()) //only print if there is at least one item in the list
 		{
-			int i = 1;
+		
 			Node<T> temp = key;
 			System.out.println(temp.getData());
 			
