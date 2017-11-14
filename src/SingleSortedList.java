@@ -1,9 +1,7 @@
 public class SingleSortedList<T extends Comparable<T>> extends NodeList<T> implements SortedListInterfacee<T>
 {
 	/**	Add an entry to the end of the list.
-		The list size will be increased by 1.
-		Other item positions will be affected based upon
-		the position it is sorted into the list, based upon comparable.
+		
 		@param item The Object to be added.
 	*/
 	public void add(T item)
