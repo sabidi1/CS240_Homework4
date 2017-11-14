@@ -6,9 +6,9 @@ public class SingleSortedList<T extends Comparable<T>> extends NodeList<T> imple
 	*/
 	public void add(T item)
 	{
-		if (key == null) //If there are no nodes, nothing needs to be compared.
+		if (key == null) //If there are no nodes
 		{
-			Node<T> newNode = new Node<T>(item);
+			Node<T> newNode = new Node<T>(item);	//new node = item
 			key = newNode;
 		}
 		else			//if there are nodes
