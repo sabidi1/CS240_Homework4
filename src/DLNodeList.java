@@ -85,9 +85,9 @@ public class DLNodeList<T> implements ListInterface<T> {
 					key = temp.getNextNode();
 				}
 				else {								//if position is greater than 1
-						DLNode <T> temp2 = key;			
-						int count = 1;
-						while(count != position)			//iterate until the node's position is found
+					DLNode <T> temp2 = key;			
+					int count = 1;
+					while(count != position)			//iterate until the node's position is found
 					{
 						temp2 = temp2.getNextNode();
 						count++;
@@ -122,12 +122,6 @@ public class DLNodeList<T> implements ListInterface<T> {
 			temp.setData(item);
 	}
 
-	/**
-	 		Returns an item based on position in the list
-	 		The items in the list will not be effected
-	 		@param position of the item in the list
-	 		@return	The item at the specified position in the list
-	 */
 	public T view(int position) {
 			DLNode<T> temp = key;
 			int count = 1;
